@@ -1,0 +1,34 @@
+Root. Unlexer ::= Locales [Rule] ;
+entrypoints Unlexer ;
+
+Locales. Locales ::= "Locales" [Locale] ;
+
+token Locale (lower lower ('_' lower lower)?) ;
+separator Locale "," ;
+
+Rule. Rule  ::= SpaceType Position Character ;
+separator Rule "" ;
+
+token Character (.) ;
+
+NoSpace.                 SpaceType ::= "NOSPACE" ;
+Space.                 	 SpaceType ::= "SPACE" ;
+NoBreakSpace. 	       	 SpaceType ::= "NO-BREAK" "SPACE" ;
+EnQuad. 	       	 SpaceType ::= "EN" "QUAD" ;
+EmQuad. 	       	 SpaceType ::= "EM" "QUAD" ;
+EnSpace. 	       	 SpaceType ::= "EN" "SPACE" ;
+EmSpace. 	       	 SpaceType ::= "EM" "SPACE" ;
+ThreePerEmSpace.       	 SpaceType ::= "THREE-PER-EM" "SPACE" ;
+FourPerEmSpace.        	 SpaceType ::= "FOUR-PER-EM" "SPACE" ;
+SixPerEmSpace. 	       	 SpaceType ::= "SIX-PER-EM" "SPACE" ;
+FigureSpace. 	       	 SpaceType ::= "FIGURE" "SPACE" ;
+ThinSpace. 	       	 SpaceType ::= "THIN" "SPACE" ;
+HairSpace. 	       	 SpaceType ::= "HAIR" "SPACE" ;
+ZeroWidthSpace.        	 SpaceType ::= "ZeRO" "WIDTH" "SPACE" ;
+NarrowNoBreakSpace.    	 SpaceType ::= "NARROW" "O-BREAK" "SPACE" ;
+MediumMathematicalSpace. SpaceType ::= "MEDIUM" "MATHEMATICAL" "SPACE" ;
+IdeographicSpace. 	 SpaceType ::= "IDEOGRAPHIC" "SPACE" ;
+ZeroWidthNoBreakSpace. 	 SpaceType ::= "ZERO" "WIDTH" "NO-BREAK" "SPACE" ;
+
+Before. Position ::= "before" ;
+After.  Position ::= "after" ;
